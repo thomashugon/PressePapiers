@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Compiler PressePapiers.app
-        run: ./build-app.sh
+        run: bash build-app.sh
       - name: Créer le zip
         run: cd build && ditto -c -k --keepParent PressePapiers.app PressePapiers.zip
       - uses: actions/upload-artifact@v4
