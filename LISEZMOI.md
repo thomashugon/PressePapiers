@@ -15,7 +15,20 @@ Une petite app pour macOS qui garde l'historique de tout ce que vous copiez, pou
 
 Les copies venant d'un gestionnaire de mots de passe (1Password, Bitwarden, etc.) sont ignorées. L'historique est enregistré dans `~/Library/Application Support/PressePapiers/historique.json`.
 
-## Installation (une seule fois)
+## Télécharger l'app déjà compilée
+
+À chaque modification, GitHub compile l'app automatiquement sur un Mac. Pour la récupérer :
+
+1. Ouvrez l'onglet **Actions** du dépôt, cliquez sur la dernière compilation réussie (✅), puis téléchargez **PressePapiers** en bas de la page, dans « Artifacts ».
+2. Décompressez le fichier (double-clic, éventuellement deux fois) et glissez **PressePapiers.app** dans **Applications**.
+3. L'app n'est pas signée par un développeur Apple, donc macOS la bloque au premier lancement. Dans le Terminal, tapez :
+   ```
+   xattr -dr com.apple.quarantine /Applications/PressePapiers.app
+   ```
+   puis ouvrez l'app normalement. (Autre possibilité : essayez de l'ouvrir, puis allez dans **Réglages Système › Confidentialité et sécurité** et cliquez sur **Ouvrir quand même**.)
+4. Suivez ensuite les étapes 4 et 5 ci-dessous.
+
+## Compiler soi-même (une seule fois)
 
 Il faut macOS 14 (Sonoma) ou plus récent.
 
