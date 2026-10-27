@@ -1,0 +1,19 @@
+name: Compiler l'app
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compiler PressePapiers.app
+        run: ./build-app.sh
+      - name: Créer le zip
+        run: cd build && ditto -c -k --keepParent PressePapiers.app PressePapiers.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PressePapiers
+          path: build/PressePapiers.zip
